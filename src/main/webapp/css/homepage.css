@@ -208,6 +208,10 @@ body{
 	#menu-btn{
 		display: inline-block;
 	}
+	
+	.header .searchform{
+		width:90%;
+	}
 	.header .navbar{
 		position:absolute;
 		top:110%; right:-110%;
