@@ -34,6 +34,11 @@ body{
   background-color: #eee;
 }
 
+section {
+    padding: 2rem 9% !important;
+}
+
+
 .btn{
 	margin-top: 1rem;
 	display: inline-block;
@@ -199,8 +204,11 @@ body{
 	
 	.header{
 		padding:2rem;
-	
 	}
+	
+	section{
+	padding:2rem;
+}
 }
 
 @media (max-width:768px){
@@ -233,8 +241,76 @@ body{
 	}
 }
 
-@media (max-width:450px){
-	html{
-	  font-size: 50%;
-	}
+@media (max-width: 450px) {
+  html {
+    font-size: 50%; /* Reduce font size for small screens */
+  }
+
+  .home .content p {
+    font-size: 25%; /* Adjust the paragraph font size */
+  }
+
+  .content-container {
+    background-color: white; /* If you want a white background for the container */
+    padding: 1rem; /* Add padding for better spacing */
+    width: 100%; /* Ensure the container is full width */
+  }
+
+  .home .content {
+    padding-left: 1rem; /* Adjust content padding for smaller screens */
+    width: 100%; /* Full width for small screens */
+  }
+
+  .home .content h3 {
+    font-size: 2rem; /* Adjust the heading size */
+  }
+
+  .home .content p {
+    font-size: 1.2rem; /* Adjust the paragraph size */
+  }
+
+  .home .content .btn {
+    width: 100%; /* Make button span the width of the screen */
+    padding: 1rem 0; /* Add padding for better button spacing */
+  }
 }
+
+
+.home{
+	display: flex;
+	align-items:center;
+	background: url(../images/Banner-1.jpg) no-repeat;
+	background-position: center;
+	background-size:cover;
+    padding-top: 17rem !important;
+    padding-bottom: 10rem !important;
+}
+
+.home .content{
+	width: 60rem;
+	text-align: left;
+}
+
+.home .content h3{
+	color: var(--black);
+	font-size: 3rem;
+	padding-left:5rem;
+}
+
+.home .content h3 span{
+	color: var(--orange);
+}
+
+.home .content p{
+	color: #2D6A4F;
+	font-size: 1.7rem;
+	padding-left: 5rem;
+	line-height: 1.8;
+}
+
+.home .btn{
+	margin-top: 2rem;
+	margin-left: 5rem;
+}
+
+

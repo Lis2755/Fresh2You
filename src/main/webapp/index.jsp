@@ -42,8 +42,17 @@
 
 </form>
 
-
 </header>
+
+<section class="home" id="home">
+<div class="content-container">
+	<div class="content">
+		<h3>Fresh and <span>Organic </span>Products To You </h3>
+		<p>At Fresh2You, we believe in bringing nature’s best to your doorstep.Our fresh and organic produce is carefully grown and handpicked by local farmers, ensuring you enjoy the highest quality with every bite.</p>
+		<a href="#" class="btn">Shop Now</a>
+	</div>
+	</div>
+</section>
 
 <script src="js/script.js"></script>
 </body>
