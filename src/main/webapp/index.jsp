@@ -54,6 +54,42 @@
 	</div>
 </section>
 
+<section class="features" id="features">
+<h1 class="heading"><span>How to Order</span></h1>
+<div class="box-container">
+	
+	<div class="box">
+		<h3>Step 1:</h3>
+		<img src="images/step1.png" alt="step 1" style="width: 120px; height: 12opx;">
+		<h3>Login or Sign Up for Fresh2You account</h3>
+	</div>
+	
+	<div class="box">
+		<h3>Step 2:</h3>
+		<img src="images/458616488-step2.png" alt="step 2" style="width: 120px; height: 120px;">
+		<h3>Input delivery address and select delivery date & time</h3>
+	</div>
+	
+	<div class="box">
+		<h3>Step 3:</h3>
+		<img src="images/step3_new.png" alt="step 3" style="width: 120px; height: 120px;">
+		<h3>Browse our products and add to cart</h3>
+	</div>
+	
+	<div class="box">
+		<h3>Step 4:</h3>
+		<img src="images/step4.png" alt="step 4" style="width: 120px; height: 120px;">
+		<h3>Make payment via cards, online banking or e-wallets</h3>
+	</div>
+	
+	<div class="box">
+		<h3>Step 5:</h3>
+		<img src="images/step5.png" alt="step 5" style="width: 120px; height: 120px;">
+		<h3>Order number will be provided as confirmation</h3>
+	</div>
+</div>
+</section>
+
 <script src="js/script.js"></script>
 </body>
 </html>

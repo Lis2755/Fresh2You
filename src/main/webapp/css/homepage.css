@@ -38,6 +38,21 @@ section {
     padding: 2rem 9% !important;
 }
 
+.heading{
+	text-align: center;
+	padding: 2rem 0;
+	padding-bottom: 3rem;
+	font-size: 3.5rem;
+	color: var(--black);
+}
+
+.heading span{
+	background: var(--orange);
+	color: #fff;
+	display: inline-block;
+	padding:.5rem 3rem;
+	clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
 
 .btn{
 	margin-top: 1rem;
@@ -239,11 +254,19 @@ section {
 		margin: 2rem 2.5rem;
 		display: block;
 	}
+	@media (max-width: 768px) {
+  .home {
+    background-image: none !important;
+    background-color: #fff !important;
+ 	 }
+	}
 }
 
 @media (max-width: 450px) {
   html {
-    font-size: 50%; /* Reduce font size for small screens */
+    font-size: 50%;
+    background-image: none !important;
+    background-color: #fff !important; /* Reduce font size for small screens */
   }
 
   .home .content p {
@@ -273,6 +296,13 @@ section {
     width: 100%; /* Make button span the width of the screen */
     padding: 1rem 0; /* Add padding for better button spacing */
   }
+  @media (max-width: 768px) {
+  .home {
+    background-image: none !important;
+    background-color: #fff !important;
+  }
+}
+  
 }
 
 
@@ -312,5 +342,85 @@ section {
 	margin-top: 2rem;
 	margin-left: 5rem;
 }
+
+/* Features Section */
+.features {
+  padding: 4rem 9%;
+  background-color: #f9f9f9;
+}
+
+.features .heading {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--black);
+}
+
+.features .heading span {
+  background: var(--orange);
+  color: #fff;
+  padding: 0.5rem 3rem;
+  clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.features .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.features .box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.features .box:hover {
+  transform: scale(1.05);
+}
+
+.features .box h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.features .box img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.features .box p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.features .box .btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 1.6rem;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.features .box .btn:hover {
+  background: var(--black);
+}
+
+
 
 
