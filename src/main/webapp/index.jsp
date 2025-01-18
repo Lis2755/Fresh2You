@@ -120,6 +120,67 @@
     </div>
 </section>
 
+<section class="review" id="review">
+	<h1 class="heading"><span>customer's review</span></h1>
+	<div class="review-slider">
+		<div class="wrapper">
+			<div class="box">
+				<img src="images/review1.png" alt="">
+				<p>“ Very good quality vegetables and well packed to retain freshness! Well done! ”</p>
+				<h3>John Doe</h3>
+				<div class="stars">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img src="images/review2.png" alt="">
+				<p>“ Thank you for delivering all the vegetables on time, all are so fresh, like just harvested from farm which you can't get from market. Worth the purchase. Thank you! ”</p>
+				<h3>Oliver Bennett</h3>
+				<div class="stars">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img src="images/review3.png" alt="">
+				<p>“ My Tom Yam soup is made so easy with your precut Meal Kit set! ”</p>
+				<h3>Sophia Carter</h3>
+				<div class="stars">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+			</div>
+			
+			<div class="box">
+				<img src="images/review4.png" alt="">
+				<p>“ Received my vegetables on time just now. All are in super fresh condition. Your service never let me down, thank you so much! ”</p>
+				<h3>Ava Williams</h3>
+				<div class="stars">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+</section>
 
 <script src="js/script.js"></script>
 </body>
