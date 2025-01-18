@@ -27,6 +27,13 @@
 <div class="fas fa-user" id="login-btn"></div>
 </div>
 
+<form action="" class="search-form">
+	<input type="search" id="search-box" placeholder="What are you looking for?">
+	<label for="search-box" class="fas fa-search"></label>
+</form>
+
 </header>
+
+<script src="js/script.js"></script>
 </body>
 </html>
