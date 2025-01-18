@@ -90,6 +90,37 @@
 </div>
 </section>
 
+<section class="categories" id="categories">
+    <h1 class="heading"><span>Product Categories</span></h1>
+    <div class="box-container">
+        <!-- Category 1 -->
+        <div class="box">
+            <img src="images/framerpick.png" alt="Framer's pick" style="width: 200px; height: 200px;">
+            <h3>Framer's pick</h3>
+            <a href="" class="btn">Shop Now</a>
+        </div>
+        <!-- Category 2 -->
+        <div class="box">
+            <img src="images/ReadyToEat.jpg" alt="Ready to eat" style="width: 200px; height: 200px;">
+            <h3>Ready to eat</h3>
+            <a href="" class="btn">Shop Now</a>
+        </div>
+        <!-- Category 3 -->
+        <div class="box">
+            <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
+            <h3>Fruits</h3>
+            <a href="" class="btn">Shop Now</a>
+        </div>
+        
+        <div class="box">
+            <img src="images/vegetables.jpg" alt="Vegetables" style="width: 200px; height: 200px;">
+            <h3>Vegetables</h3>
+            <a href="" class="btn">Shop Now</a>
+        </div>
+    </div>
+</section>
+
+
 <script src="js/script.js"></script>
 </body>
 </html>
