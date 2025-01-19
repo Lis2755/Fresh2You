@@ -1,6 +1,5 @@
 <%@ page language="java" pageEncoding="ISO-8859-1"%>
-<%@ page
-	import="Java.dbImpl.*, Java.services.*, Java.elements.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
+<%@ page import="Java.dbImpl.*, Java.elements.*, java.util.*, java.io.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,111 +16,77 @@
 	</head>
 	
 	<body style="background-color: #ebebea;">
-		<%
-		/* Checking the user credentials */
-		String userType = (String) session.getAttribute("usertype");
-		String userName = (String) session.getAttribute("username");
-		String password = (String) session.getAttribute("password");
 	
-		if (userType == null || !userType.equals("admin")) {
-	
-			response.sendRedirect("login.jsp?message=Access Denied, Login as admin!!");
-	
-		}
-	
-		else if (userName == null || password == null) {
-	
-			response.sendRedirect("login.jsp?message=Session Expired, Login Again!!");
-	
-		}
-		%>
-	
-		<jsp:include page="Header.jsp" />
-	
-		<div class="container">
+		<div class="row">
+			<jsp:include page="Header.jsp" />
+		</div>
+
+		<div class="container" style="margin-top: 120px;">
 			<h2 class="ms-5 text-start text-success fw-bold" 
     		style="color: #1e4f2b; font-size: 35px; font-weight: bold; margin-top: 20px; margin-bottom: 20px;">
-        		Shopping Cart
+        		Product Stock List
     		</h2>
 		</div>
 		
-		<div class="container-fluid">
-			<div class="table-responsive ">
-				<table class="table table-hover table-sm">
-					<thead
-						style="background-color: #2c6c4b; color: white; font-size: 18px;">
+		<div class="container-fluid" style="display: flex; justify-content: center;">
+			<div class="table-responsive" style="width: 90%;">
+				<table class="table table-hover" style="width: 100%; border-collapse: collapse;">
+					<thead style="background-color: #2c6c4b; color: white; font-size: 18px;">
 						<tr>
 							<th>Image</th>
-							<th>ProductId</th>
+							<th>Product ID</th>
 							<th>Name</th>
 							<th>Type</th>
 							<th>Price</th>
-							<th>Sold Qty</th>
-							<th>Stock Qty</th>
+							<th>Stock Quantity</th>
 							<th colspan="2" style="text-align: center">Actions</th>
 						</tr>
 					</thead>
 					<tbody style="background-color: white; font-size: 16px;">
-	
-	
-	
+
 						<%
 						ProductServiceImpl productDao = new ProductServiceImpl();
-						List<ProductBean> products = new ArrayList<ProductBean>();
-						products = productDao.getAllProducts();
+						List<ProductBean> products = productDao.getAllProducts(application); // Pass ServletContext
+
 						for (ProductBean product : products) {
 						%>
-	
+
 						<tr>
-							<td><img src="./ShowImage?pid=<%=product.getProdId()%>"
-								style="width: 50px; height: 50px;"></td>
-							<td><a
-								href="./updateProduct.jsp?prodid=<%=product.getProdId()%>"><%=product.getProdId()%></a></td>
-							<%
-							String name = product.getProdName();
-							name = name.substring(0, Math.min(name.length(), 25)) + "..";
-							%>
-							<td><%=name%></td>
-							<td><%=product.getProdType().toUpperCase()%></td>
-							<td><%=product.getProdPrice()%></td>
-							<td><%=new OrderServiceImpl().countSoldItem(product.getProdId())%></td>
+							<td>
+								<img src="<%= request.getContextPath() %>/<%= product.getProdImage() %>"
+									style="width: 50px; height: 50px;">
+							</td>
+							<td><%=product.getProdId()%></td>
+							<td><%=product.getProdName()%></td>
+							<td><%=product.getProdType()%></td>
+							<td>$<%=product.getProdPrice()%></td>
 							<td><%=product.getProdQuantity()%></td>
-							<td>
-								<form method="post">
-									<button type="submit"
-										formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>"
-										class="btn btn-primary">Update</button>
+							<td class="text-center">
+							    <form method="post" style="display: inline-block; margin-right: 5px;">
+							        <button type="submit"
+							            formaction="adminUpdateProd.jsp?prodid=<%=product.getProdId()%>"
+							            class="btn btn-primary">Update</button>
+							    </form>
+							    
+							    <form action="./RemoveProductSrv" method="post" style="display: inline-block;">
+    								<input type="hidden" name="prodid" value="<%= product.getProdId() %>">
+    								<button type="submit" class="btn btn-danger">Remove</button>
 								</form>
+
 							</td>
-							<td>
-								<form method="post">
-									<button type="submit"
-										formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>"
-										class="btn btn-danger">Remove</button>
-								</form>
-							</td>
-	
+
 						</tr>
-	
+
 						<%
 						}
 						%>
-						<%
-						if (products.size() == 0) {
-						%>
-						<tr style="background-color: grey; color: white;">
-							<td colspan="7" style="text-align: center;">No Items
-								Available</td>
-	
-						</tr>
-						<%
-						}
-						%>
+						
+
 					</tbody>
 				</table>
 			</div>
 		</div>
-	
+
 		<%@ include file="Footer.jsp"%>
 	</body>
 </html>

@@ -55,9 +55,10 @@ public class LoginSrv extends HttpServlet {
             if (password.equals(storedPassword) && userType.equalsIgnoreCase(storedUserType)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", userName);
+                session.setAttribute("password", password); // ✅ Store password in session
                 session.setAttribute("usertype", userType);
 
-                System.out.println("Login Successful!");
+                System.out.println("Login Successful! Storing session values -> Username: " + userName + ", Password: " + password + ", UserType: " + userType);
 
                 if (userType.equalsIgnoreCase("admin")) {
                     response.sendRedirect("adminStock.jsp");
@@ -74,6 +75,8 @@ public class LoginSrv extends HttpServlet {
 
         response.sendRedirect("login.jsp?message=" + URLEncoder.encode(status, "UTF-8"));
     }
+
+
 
 
     // Load users from CSV file into a HashMap

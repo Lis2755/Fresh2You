@@ -48,7 +48,6 @@
 </header>
 =======
 
-
 <section class="home" id="home">
 <div class="content-container">
 	<div class="content">
@@ -94,6 +93,7 @@
 	</div>
 </div>
 </section>
+
 
 <section class="categories" id="categories">
     <h1 class="heading"><span>Product Categories</span></h1>
@@ -196,9 +196,9 @@
 </section>
 
 
-  <jsp:include page="Footer.jsp" />
+<jsp:include page="Footer.jsp" />
 
-
+<jsp:include page="login.jsp" />
 
 <script src="js/script.js"></script>
 </body>
