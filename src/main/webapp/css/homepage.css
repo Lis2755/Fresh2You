@@ -481,6 +481,81 @@ section {
 	font-size:1.7rem;
 }
 
+/* Styling for Recipes Section */
+.recipes {
+    background-color: #f9f9f9;
+    padding: 50px 20px; /* Spacing around the section */
+    text-align: center;
+}
+
+.recipes .heading {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.recipes .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Center alignment */
+    text-align: center;
+}
+
+.recipes .content-container img {
+    width: 100%;
+    max-width: 400px; /* Limit the size of the image */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.recipes .content-container p {
+    font-size: 1.2rem;
+    color: #555; /* Gray color for better readability */
+    line-height: 1.6;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.recipes .content-container .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #fff; /* Orange background */
+    transition: background-color 0.3s ease;
+}
+
+.recipes .content-container .btn:hover {
+    background-color: #e55b00; /* Darker orange on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipes .heading {
+        font-size: 2rem;
+    }
+
+    .recipes .content-container img {
+        max-width: 300px;
+    }
+
+    .recipes .content-container p {
+        font-size: 1rem;
+    }
+
+    .recipes .content-container .btn {
+        font-size: 0.9rem;
+    }
+}
+
+
+
 /* Footer Styling */
 .footer {
     background-color: #fff;
@@ -561,3 +636,6 @@ section {
 .social-links{
 	margin-left: 6.5rem;
 }
+
+
+

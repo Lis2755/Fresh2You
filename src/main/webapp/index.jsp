@@ -7,42 +7,9 @@
 <title>Fresh2You</title>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="css/homepage.css">
+  <jsp:include page="Header.jsp" />
 </head>
 <body>
-<header class="header">
-<a href="#" class="logo"><i class="fas fa-shopping-basket"></i>  Fresh2You</a>
-
-<nav class="navbar">
-	<a href="#home">home</a>
-	<a href="#About us">About us</a>
-	<a href="Top Picks!">Top Picks!</a>
-	<a href="#Products">Products</a>
-	<a href="#Promotion">Promotion</a>
-</nav>
-
-<div class="icons">
-<div class="fa fa-bars" id="menu-btn"></div>
-<div class="fas fa-search" id="search-btn"></div>
-<div class="fas fa-shopping-cart" id="cart-btn"></div>
-<div class="fas fa-user" id="login-btn"></div>
-</div>
-
-<form action="" class="search-form">
-	<input type="search" id="search-box" placeholder="What are you looking for?">
-	<label for="search-box" class="fas fa-search"></label>
-</form>
-
-<form action="" class="login-form">
-<h3>Login now</h3>
-<input type="email" placeholder="enter your email" class="box">
-<input type="password" placeholder="your password" class="box">
-<p>forget your password <a href="#">click here</a></p>
-<p>don't have an account <a href="#">create now</a></p>
-<input type="submit" value="login now" class="btn">
-
-</form>
-
-</header>
 
 <section class="home" id="home">
 <div class="content-container">
@@ -120,6 +87,15 @@
     </div>
 </section>
 
+<section class="recipes" id="recipes">
+    <h1 class="heading"><span>Discover Our Recipes</span></h1>
+    <div class="content-container">
+    	<img src="images/recipe.jpeg" alt="recipe">
+        <p>Get inspired with delicious recipes using our fresh and organic produce. From quick meals to gourmet dishes, we have something for everyone!</p>
+        <a href="index.html" class="btn">Discover Recipes</a>
+    </div>
+</section>
+
 <section class="review" id="review">
 	<h1 class="heading"><span>customer's review</span></h1>
 	<div class="review-slider">
@@ -176,55 +152,13 @@
 				</div>
 			</div>
 			
-			
 		</div>
 	</div>
 
 </section>
 
-<section class="footer">
-    <div class="box-container">
-        <!-- Logo and Company Name -->
-        <div class="box">
-            <h3>Fresh2You <i class="fas fa-shopping-basket"></i></h3>
-            <p>Delivering fresh and organic produce straight to your doorstep.</p>
-        </div>
 
-        <!-- Contact Information -->
-        <div class="box">
-            <h3>Contact Us</h3>
-            <p>Email: support@fresh2you.com</p>
-            <p>Phone: +1 234 567 890</p>
-            <p>Address: 123 Green Lane, Cityville</p>
-        </div>
-
-        <!-- Useful Links -->
-        <div class="box">
-            <h3>Useful Links</h3>
-            <a href="#home">Home</a>
-            <a href="#About us">About Us</a>
-            <a href="#Products">Products</a>
-            <a href="#Promotion">Promotion</a>
-            <a href="#">Privacy Policy</a>
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="box">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Fresh2You. All Rights Reserved.</p>
-    </div>
-</section>
-
-
+  <jsp:include page="Footer.jsp" />
 
 
 
