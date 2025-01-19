@@ -70,7 +70,7 @@ public class UpdateProductSrv extends HttpServlet {
         String status = dao.updateProductWithoutImage(prodId, product, getServletContext());
 
         // ✅ Redirect back to update page with success/failure message
-        response.sendRedirect("adminUpdateProd.jsp?prodid=" + prodId + "&message=" + status);
+        response.sendRedirect("adminStock.jsp?prodid=" + prodId + "&message=" + status);
     }
 
 

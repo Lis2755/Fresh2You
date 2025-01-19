@@ -1,13 +1,9 @@
 package Java.srv;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,9 +12,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginSrv (Using CSV instead of Database)
- */
 @WebServlet("/LoginSrv")
 public class LoginSrv extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -31,7 +24,15 @@ public class LoginSrv extends HttpServlet {
         String userType = request.getParameter("usertype");
         response.setContentType("text/html");
 
-        System.out.println("Received Login Request: Username=" + userName + ", Password=" + password + ", UserType=" + userType);
+        // Debugging logs
+        System.out.println("DEBUG: Login Attempt -> Username: " + userName + ", UserType: " + userType);
+
+        // Ensure no null or empty values are passed
+        if (userName == null || password == null || userType == null ||
+            userName.isEmpty() || password.isEmpty() || userType.isEmpty()) {
+            response.sendRedirect("login.jsp?message=" + URLEncoder.encode("Invalid Input! Please fill all fields.", "UTF-8"));
+            return;
+        }
 
         // Get the CSV file path from WEB-INF
         ServletContext context = getServletContext();
@@ -40,9 +41,10 @@ public class LoginSrv extends HttpServlet {
         // Load users from CSV
         Map<String, String[]> users = loadUsersFromCSV(csvFilePath);
 
-        // Debug: Print loaded users
-        System.out.println("Loaded Users from CSV: " + users);
+        // Debugging
+        System.out.println("DEBUG: Loaded Users from CSV: " + users);
 
+        // Default error message
         String status = "Login Denied! Invalid Username or Password.";
 
         if (users.containsKey(userName)) {
@@ -50,34 +52,32 @@ public class LoginSrv extends HttpServlet {
             String storedPassword = credentials[0];
             String storedUserType = credentials[1];
 
-            System.out.println("Found User: " + userName + " | Expected Password=" + storedPassword + ", Expected UserType=" + storedUserType);
+            System.out.println("DEBUG: Found User -> " + userName + " | Expected UserType: " + storedUserType);
 
+            // Case-insensitive role matching
             if (password.equals(storedPassword) && userType.equalsIgnoreCase(storedUserType)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", userName);
-                session.setAttribute("password", password); // ✅ Store password in session
                 session.setAttribute("usertype", userType);
 
-                System.out.println("Login Successful! Storing session values -> Username: " + userName + ", Password: " + password + ", UserType: " + userType);
+                System.out.println("DEBUG: Login Success! Redirecting user...");
 
+                // Redirect based on user role
                 if (userType.equalsIgnoreCase("admin")) {
                     response.sendRedirect("adminStock.jsp");
                 } else {
-                    response.sendRedirect("userHome.jsp");
+                    response.sendRedirect("BaseFruits.jsp"); // Redirect customers to BaseFruits.jsp
                 }
                 return;
             } else {
-                System.out.println("Password/UserType Mismatch!");
+                System.out.println("DEBUG: Password/UserType Mismatch!");
             }
         } else {
-            System.out.println("User Not Found in CSV!");
+            System.out.println("DEBUG: User Not Found in CSV!");
         }
 
         response.sendRedirect("login.jsp?message=" + URLEncoder.encode(status, "UTF-8"));
     }
-
-
-
 
     // Load users from CSV file into a HashMap
     private Map<String, String[]> loadUsersFromCSV(String csvFilePath) {
@@ -94,12 +94,13 @@ public class LoginSrv extends HttpServlet {
                 }
                 String[] values = line.split(",");
 
-                if (values.length == 3) {
-                    users.put(values[0], new String[]{values[1], values[2]});
-                    System.out.println("Loaded User: " + values[0] + " | Password=" + values[1] + ", UserType=" + values[2]);
+                if (values.length == 3) { // Ensure valid CSV format
+                    users.put(values[0].trim(), new String[]{values[1].trim(), values[2].trim()});
+                    System.out.println("DEBUG: Loaded User -> " + values[0]);
                 }
             }
         } catch (IOException e) {
+            System.out.println("ERROR: Unable to read CSV file!");
             e.printStackTrace();
         }
         return users;
