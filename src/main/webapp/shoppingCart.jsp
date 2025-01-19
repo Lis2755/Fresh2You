@@ -26,7 +26,8 @@
 		<!-- Middle (Contents) -->
 		<!-- Title -->
 		<div class="container">
-    		<h2 class="ms-5 text-start text-success fw-bold" style="color: #1e4f2b; font-size: 35px; font-weight: bold; margin-top: 20px; margin-bottom: 20px;">
+    		<h2 class="ms-5 text-start text-success fw-bold" 
+    		style="color: #1e4f2b; font-size: 35px; font-weight: bold; margin-top: 20px; margin-bottom: 20px;">
         		Shopping Cart
     		</h2>
 		</div>
