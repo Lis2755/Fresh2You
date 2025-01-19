@@ -1,4 +1,4 @@
-<%@ page language="java"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <header class="header">
 <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>  Fresh2You</a>
 
@@ -48,6 +49,8 @@
 </header>
 =======
 
+=======
+>>>>>>> 7c343e4894e6049c30f9fb0ca6165dd257151d9c
 <section class="home" id="home">
 <div class="content-container">
 	<div class="content">
@@ -98,39 +101,27 @@
 <section class="categories" id="categories">
     <h1 class="heading"><span>Product Categories</span></h1>
     <div class="box-container">
-        <!-- Category 1 -->
-        <div class="box">
-            <img src="images/framerpick.png" alt="Framer's pick" style="width: 200px; height: 200px;">
-            <h3>Framer's pick</h3>
-            <a href="" class="btn">Shop Now</a>
-        </div>
-        <!-- Category 2 -->
-        <div class="box">
-            <img src="images/ReadyToEat.jpg" alt="Ready to eat" style="width: 200px; height: 200px;">
-            <h3>Ready to eat</h3>
-            <a href="" class="btn">Shop Now</a>
-        </div>
         <!-- Category 3 -->
         <div class="box">
             <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
             <h3>Fruits</h3>
-            <a href="" class="btn">Shop Now</a>
+            <a href="BaseFruits.html" class="btn">Shop Now</a>
         </div>
         
         <div class="box">
             <img src="images/vegetables.jpg" alt="Vegetables" style="width: 200px; height: 200px;">
             <h3>Vegetables</h3>
-            <a href="" class="btn">Shop Now</a>
+            <a href="BaseVegetables.html" class="btn">Shop Now</a>
         </div>
     </div>
 </section>
 
 <section class="recipes" id="recipes">
-    <h1 class="heading"><span>Discover Our Recipes</span></h1>
+    <h1 class="heading"><span>Our Recipes</span></h1>
     <div class="content-container">
     	<img src="images/recipe.jpeg" alt="recipe">
         <p>Get inspired with delicious recipes using our fresh and organic produce. From quick meals to gourmet dishes, we have something for everyone!</p>
-        <a href="index.html" class="btn">Discover Recipes</a>
+        <a href="connect.html" class="btn">Discover Recipes</a>
     </div>
 </section>
 
