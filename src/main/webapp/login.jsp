@@ -15,53 +15,67 @@
 	
 	<body style="background-color: #ffffff;">
 	
-		<!-- <//%@ include file="header.jsp"%> -->
+		<!-- Include header (if needed) -->
 	
 		<%
 		String message = request.getParameter("message");
 		%>
 		
 		<div class="container">
-			<div class="row"
-				style="margin-top: 50px; margin-left: 2px; margin-right: 2px;">
+			<div class="row" style="margin-top: 50px; margin-left: 2px; margin-right: 2px;">
 				
 				<form action="./LoginSrv" method="post"
 					class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2"
 					style="border: 2px solid black; background-color: #ebebea; padding: 10px;">
 					
-					<div style="font-weight: bold; margin-bottom: 20px;" class="text-center"c>
+					<div style="font-weight: bold; margin-bottom: 20px;" class="text-center">
 						<h2 style="color: #1e4f2b; font-weight: bold;">Please Login to Continue</h2>
 						<%
 							if (message != null) {
-								%>
-								<p style="color: green;">
-									<%=message%>
-								</p>
-								<%
+						%>
+							<p style="color: red;">
+								<%=message%>
+							</p>
+						<%
 							}
 						%>
 					</div>
-					
+
+					<!-- DEBUG SECTION: Prints submitted values to check if they are being sent correctly -->
+					<%
+					    String debugUsername = request.getParameter("username");
+					    String debugPassword = request.getParameter("password");
+					    String debugUserType = request.getParameter("usertype");
+
+					    if (debugUsername != null) {
+					%>
+					    <p style="color: red; font-weight: bold;">
+					        DEBUG: Username = <%= debugUsername %>, Password = <%= debugPassword %>, UserType = <%= debugUserType %>
+					    </p>
+					<%
+					    }
+					%>
+
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="col-md-12 form-group">
-							<label for="last_name" style="font-size: 16px;">Email Address</label> 
+							<label for="email" style="font-size: 16px;">Email Address</label> 
 							<input type="email" placeholder="Enter Your Email" name="username" class="form-control"
-								id="last_name" required>
+								id="email" required>
 						</div>
 					</div>
 					
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="col-md-12 form-group">
-							<label for="last_name">Password</label> <input type="password"
-								placeholder="Enter Password" name="password" class="form-control"
-								id="last_name" required>
+							<label for="password">Password</label> 
+							<input type="password" placeholder="Enter Password" name="password" class="form-control"
+								id="password" required>
 						</div>
 					</div>
 					
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="col-md-12 form-group">
-							<label for="userrole">Login As</label> <select name="usertype"
-								id="userrole" class="form-control" required>
+							<label for="userrole">Login As</label> 
+							<select name="usertype" id="userrole" class="form-control" required>
 								<option value="customer" selected>Customer</option>
 								<option value="admin">Admin</option>
 							</select>
@@ -82,7 +96,7 @@
 			</div>
 		</div>
 	
-		<!-- <//%@ include file="footer.html"%> -->
+		<!-- Include footer (if needed) -->
 	
 	</body>
 </html>

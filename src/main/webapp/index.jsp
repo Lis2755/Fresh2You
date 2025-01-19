@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
   <jsp:include page="Header.jsp" />
 </head>
 <body>
-<<<<<<< HEAD
+
 <header class="header">
 <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>  Fresh2You</a>
 
@@ -47,7 +47,7 @@
 
 </header>
 =======
->>>>>>> 02c90a2660f83a6b69109c81b8b8062b4decc5b3
+
 
 <section class="home" id="home">
 <div class="content-container">
