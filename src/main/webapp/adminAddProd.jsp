@@ -15,72 +15,70 @@
 	</head>
 	<body style="background-color: #ffffff;">
 		
-		<!-- Insert header -->
-	
-
-		<div class="container">
-			<div class="row"
-				style="margin-top: 30px; margin-left: 2px; margin-right: 2px;">
-				<form action="./AddProductSrv" method="post"
-					enctype="multipart/form-data" class="col-md-6 col-md-offset-3"
-					style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 10px;">
-					<div style="font-weight: bold;" class="text-center">
-						<h2 style="color: #006400; font-weight: bold;">Admin | Add Product</h2>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="last_name">PRODUCT NAME</label> <input type="text"
-								placeholder="Enter Product Name" name="name" class="form-control"
-								id="last_name" required>
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="producttype">PRODUCT TYPE</label> 
-							<select name="type"
-								id="producttype" class="form-control" required>
-								<option value="mobile">Vegetables</option>
-								<option value="tv">Fruits</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="last_name">PRODUCT DESCRIPTION</label>
-						<textarea placeholder="Enter Product Description" name="info" class="form-control" id="last_name" required></textarea>
-					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label for="last_name">UNIT PRICE (RM/gram)</label> <input type="number"
-								placeholder="Enter Unit Price" name="price" class="form-control"
-								id="last_name" required>
-						</div>
-						<div class="col-md-6 form-group">
-							<label for="last_name">STOCK QUANTITY</label> <input type="number"
-								placeholder="Enter Stock Quantity" name="quantity"
-								class="form-control" id="last_name" required>
-						</div>
-					</div>
-					<div>
-						<div class="col-md-12 form-group">
-							<label for="last_name">PRODUCT IMAGE</label> <input type="file"
-								placeholder="Select Image" name="image" class="form-control"
-								id="last_name" required>
-						</div>
-					</div>
-					<div class="row" style="margin-bottom: 10px;">
-						<div class="col-md-12 text-center">
-					        <button type="submit" class="btn btn-success" 
-					            style="width: 150px; height: 40px; font-size: 18px; border-radius: 50px; 
-					                   background-color: #006400; font-weight: bold;">
-					            Add Product
-					        </button>
-					    </div>
-					</div>
-
-
-				</form>
-			</div>
+		<!-- Insert Header -->
+	    <div class="row">
+			<jsp:include page="Header.jsp" />
 		</div>
+		
+		<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh; margin-top: 50px; margin-bottom: 50px;">
+    <div class="row w-100">
+        <form action="AddProductSrv" method="post" enctype="multipart/form-data"
+            enctype="multipart/form-data" class="col-md-8 col-lg-7 col-xl-6 mx-auto"
+            style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 30px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); margin-top:110px; margin-bottom: 15px;">
+            
+            <div class="text-center">
+                <h2 style="color: #006400; font-weight: bold;">Admin | Add Product</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="last_name">PRODUCT NAME</label> 
+                    <input type="text" placeholder="Enter Product Name" name="name" class="form-control" style="height: 45px;" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="producttype">PRODUCT TYPE</label> 
+                    <select name="type" class="form-control" style="height: 45px;" required>
+                        <option value="vegetables">Vegetables</option>
+                        <option value="fruits">Fruits</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="price">UNIT PRICE (RM/gram)</label> 
+                    <input type="number" placeholder="Enter Unit Price" name="price" class="form-control" style="height: 45px;" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="quantity">STOCK QUANTITY</label> 
+                    <input type="number" placeholder="Enter Stock Quantity" name="quantity" class="form-control" style="height: 45px;" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="image">PRODUCT IMAGE</label> 
+                <input type="file" name="image" class="form-control" style="height: 45px;" required>
+            </div>
+
+            <div class="row text-center" style="margin-top: 20px;">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success"
+                        style="width: 200px; height: 50px; font-size: 20px; border-radius: 50px; 
+                        background-color: #006400; color: white; font-weight: bold; display: flex; 
+                        align-items: center; justify-content: center;">
+                        Add Product
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 	
-		<!-- Insert footer -->
+		<!-- Insert Footer -->
+    	<jsp:include page="Footer.jsp" />
+    	
 	</body>
 </html>

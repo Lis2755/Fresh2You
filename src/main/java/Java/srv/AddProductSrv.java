@@ -1,73 +1,71 @@
 package Java.srv;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import jakarta.servlet.RequestDispatcher;
+import java.io.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import Java.dbImpl.ProductServiceImpl;
+import Java.elements.ProductBean;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.Part;
 
-import Java.dbImpl.*;
-
-/**
- * Servlet implementation class AddProductSrv
- */
 @WebServlet("/AddProductSrv")
-@MultipartConfig(maxFileSize = 16177215)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024,  // 1MB threshold
+                 maxFileSize = 1024 * 1024 * 5,    // 5MB max file size
+                 maxRequestSize = 1024 * 1024 * 10) // 10MB max request size
 public class AddProductSrv extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    public AddProductSrv() {
+        super();
+    }
 
-		HttpSession session = request.getSession();
-		String userType = (String) session.getAttribute("usertype");
-		String userName = (String) session.getAttribute("username");
-		String password = (String) session.getAttribute("password");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		if (userType == null || !userType.equals("admin")) {
+        ServletContext context = getServletContext();
+        ProductServiceImpl productService = new ProductServiceImpl();
 
-			response.sendRedirect("login.jsp?message=Access Denied!");
+        // ✅ Get Form Data
+        String prodId = "P" + System.currentTimeMillis(); // Generate unique Product ID
+        String prodName = request.getParameter("name");
+        String prodType = request.getParameter("type");
+        double prodPrice = Double.parseDouble(request.getParameter("price"));
+        int prodQuantity = Integer.parseInt(request.getParameter("quantity"));
 
-		}
+        // ✅ Handle Image Upload
+        Part filePart = request.getPart("image");
+        String prodImage = "images/default.png"; // Default image if upload fails
+        if (filePart != null && filePart.getSize() > 0) {
+            String fileName = extractFileName(filePart);
+            String uploadPath = context.getRealPath("/images/") + File.separator + fileName;
 
-		else if (userName == null || password == null) {
+            File uploadDir = new File(context.getRealPath("/images/"));
+            if (!uploadDir.exists()) uploadDir.mkdir(); // Create folder if not exists
 
-			response.sendRedirect("login.jsp?message=Session Expired, Login Again to Continue!");
-		}
+            filePart.write(uploadPath);
+            prodImage = "images/" + fileName; // Store image path
+        }
 
-		String status = "Product Registration Failed!";
-		String prodName = request.getParameter("name");
-		String prodType = request.getParameter("type");
-		String prodInfo = request.getParameter("info");
-		double prodPrice = Double.parseDouble(request.getParameter("price"));
-		int prodQuantity = Integer.parseInt(request.getParameter("quantity"));
+        // ✅ Create Product and Save to CSV
+        ProductBean product = new ProductBean(prodId, prodName, prodType, prodPrice, prodQuantity, prodImage);
+        String status = productService.addProduct(product, context);
 
-		Part part = request.getPart("image");
+        // ✅ Redirect to Admin Stock Page
+        response.sendRedirect("adminStock.jsp?message=" + status);
+    }
 
-		InputStream inputStream = part.getInputStream();
-
-		InputStream prodImage = inputStream;
-
-		ProductServiceImpl product = new ProductServiceImpl();
-
-		status = product.addProduct(prodName, prodType, prodInfo, prodPrice, prodQuantity, prodImage);
-
-		RequestDispatcher rd = request.getRequestDispatcher("addProduct.jsp?message=" + status);
-		rd.forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+    // Extracts file name from uploaded file
+    private String extractFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+        for (String content : contentDisp.split(";")) {
+            if (content.trim().startsWith("filename")) {
+                return content.substring(content.indexOf("=") + 2, content.length() - 1);
+            }
+        }
+        return "default.png";
+    }
 }

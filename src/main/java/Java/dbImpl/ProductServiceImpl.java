@@ -18,43 +18,36 @@ public class ProductServiceImpl {
 
     // **1 Add Product (Write to CSV)**
     public String addProduct(ProductBean product, ServletContext context) {
+        String csvFilePath = context.getRealPath("/WEB-INF/stock.csv");
         String status = "Product Registration Failed!";
-        
-        try {
-            String csvFilePath = context.getRealPath(CSV_FILE_PATH);
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFilePath, true));
+             PrintWriter pw = new PrintWriter(bw)) {
+
             File file = new File(csvFilePath);
-            
-            boolean isNewFile = !file.exists(); // Check if file exists
-            
-            FileWriter fw = new FileWriter(file, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-            
-            // Generate product ID if not present
-            if (product.getProdId() == null || product.getProdId().isEmpty()) {
-                product.setProdId(generateProductId());
-            }
+            boolean isNewFile = !file.exists();
 
-            // Write product data to CSV (Append mode)
+            // Write CSV Header if file is new
             if (isNewFile) {
-                pw.println("prodId,prodName,prodType,prodPrice,prodQuantity,prodImage"); // Write header if file is new
+                pw.println("prodId,prodName,prodType,prodPrice,prodQuantity,prodImage");
             }
-            
-            pw.println(product.getProdId() + "," + product.getProdName() + "," + product.getProdType() + ","
-                    + product.getProdPrice() + "," + product.getProdQuantity() + ","
-                    + product.getProdImage());
 
-            pw.flush();
-            pw.close();
-            
-            status = "Product Added Successfully with Product ID: " + product.getProdId();
+            // Write Product Data
+            pw.println(product.getProdId() + "," +
+                       product.getProdName() + "," +
+                       product.getProdType() + "," +
+                       product.getProdPrice() + "," +
+                       product.getProdQuantity() + "," +
+                       product.getProdImage()); 
+
+            status = "Product Added Successfully!";
         } catch (IOException e) {
             status = "Error: " + e.getMessage();
-            e.printStackTrace();
         }
 
         return status;
     }
+
     
     //**Update Product Info**
     public String updateProductWithoutImage(String prodId, ProductBean updatedProduct, ServletContext context) {
