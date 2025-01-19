@@ -42,45 +42,50 @@
 							<th colspan="2" style="text-align: center">Actions</th>
 						</tr>
 					</thead>
-					<tbody style="background-color: white; font-size: 16px;">
-
-						<%
-						ProductServiceImpl productDao = new ProductServiceImpl();
-						List<ProductBean> products = productDao.getAllProducts(application); // Pass ServletContext
-
-						for (ProductBean product : products) {
-						%>
-
-						<tr>
-							<td>
-								<img src="<%= request.getContextPath() %>/<%= product.getProdImage() %>"
-									style="width: 50px; height: 50px;">
-							</td>
-							<td><%=product.getProdId()%></td>
-							<td><%=product.getProdName()%></td>
-							<td><%=product.getProdType()%></td>
-							<td>$<%=product.getProdPrice()%></td>
-							<td><%=product.getProdQuantity()%></td>
-							<td class="text-center">
-							    <form method="post" style="display: inline-block; margin-right: 5px;">
-							        <button type="submit"
-							            formaction="adminUpdateProd.jsp?prodid=<%=product.getProdId()%>"
-							            class="btn btn-primary">Update</button>
-							    </form>
-							    
-							    <form action="./RemoveProductSrv" method="post" style="display: inline-block;">
-    								<input type="hidden" name="prodid" value="<%= product.getProdId() %>">
-    								<button type="submit" class="btn btn-danger">Remove</button>
-								</form>
-
-							</td>
-
-						</tr>
-
-						<%
-						}
-						%>
 						
+						<tbody style="background-color: white; font-size: 16px;">
+	
+							<%
+							ProductServiceImpl productDao = new ProductServiceImpl();
+							List<ProductBean> products = productDao.getAllProducts(application); // Pass ServletContext
+	
+							for (ProductBean product : products) {
+							%>
+	
+							<tr>
+								<td>
+									<img src="<%= request.getContextPath() %>/<%= product.getProdImage() %>"
+										style="width: 50px; height: 50px;">
+								</td>
+								<td><%=product.getProdId()%></td>
+								<td><%=product.getProdName()%></td>
+								<td><%=product.getProdType()%></td>
+								<td>RM<%= String.format("%.2f", product.getProdPrice()) %></td>
+								<td class= "text-center"><%=product.getProdQuantity()%></td>
+								<td class="text-center">
+			                        <form action="adminUpdateProd.jsp" method="get" style="display: inline-block; margin-right: 5px;">
+									    <input type="hidden" name="prodid" value="<%= product.getProdId() %>">
+									    <button type="submit" class="btn btn-primary">Update</button>
+									</form>
+
+			                        <form action="./RemoveProductSrv" method="post" style="display: inline-block;">
+			                            <input type="hidden" name="prodid" value="<%= product.getProdId() %>">
+			                            <button type="submit" class="btn btn-danger">Remove</button>
+			                        </form>
+			                    </td>
+			                </tr>
+			                <% } %>
+	
+			                <!-- Add New Product Button as the Last Row -->
+			                <tr>
+			                    <td colspan="7" class="text-center">
+			                        <form action="adminAddProd.jsp" method="get">
+			                            <button type="submit" class="btn btn-success" style="padding: 10px 20px; font-size: 16px;">
+			                                + Add New Product
+			                            </button>
+			                        </form>
+			                    </td>
+			                </tr>
 
 					</tbody>
 				</table>
