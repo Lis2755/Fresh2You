@@ -1,3 +1,5 @@
+<h1>Fresh2You</h1>
+
 Fresh2You is an innovative e-commerce platform designed to create a direct connection between local farmers and consumers, ensuring fresh, high-quality produce reaches your doorstep without the middleman. This platform empowers farmers by providing them with an easy-to-use interface to list and sell their freshly harvested goods directly to customers. It fosters a transparent, community-driven marketplace where consumers can access a wide variety of locally-grown fruits, vegetables, dairy products, and more.
 
 By removing intermediaries, Fresh2You helps reduce the cost of produce, allowing consumers to enjoy fresher, affordable food while supporting local farmers and promoting sustainable farming practices. Each farmer can create a personalized profile showcasing their farm, produce, and growing practices, allowing consumers to make informed purchasing decisions. Whether you're looking for organic, seasonal, or niche produce, Fresh2You brings farm-to-table convenience right to your home.
