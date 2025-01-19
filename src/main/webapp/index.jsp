@@ -66,12 +66,6 @@
             <h3>Framer's pick</h3>
             <a href="" class="btn">Shop Now</a>
         </div>
-        <!-- Category 2 -->
-        <div class="box">
-            <img src="images/ReadyToEat.jpg" alt="Ready to eat" style="width: 200px; height: 200px;">
-            <h3>Ready to eat</h3>
-            <a href="" class="btn">Shop Now</a>
-        </div>
         <!-- Category 3 -->
         <div class="box">
             <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
