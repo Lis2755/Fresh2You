@@ -1,63 +1,54 @@
 package Java.srv;
 
-import java.io.IOException;
-
-import jakarta.servlet.RequestDispatcher;
+import java.io.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import Java.dbImpl.*;
+import Java.dbImpl.ProductServiceImpl;
+import jakarta.servlet.ServletContext;
 
 @WebServlet("/RemoveProductSrv")
 public class RemoveProductSrv extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public RemoveProductSrv() {
-		super();
+    public RemoveProductSrv() {
+        super();
+    }
 
-	}
+    // ✅ Handle both POST and GET requests
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
-		HttpSession session = request.getSession();
-		String userType = (String) session.getAttribute("usertype");
-		String userName = (String) session.getAttribute("username");
-		String password = (String) session.getAttribute("password");
+    // ✅ Common method to process product removal
+    private void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		if (userType == null || !userType.equals("admin")) {
+        // ✅ Get Product ID from request (Fixing "prodId cannot be resolved")
+        String prodId = request.getParameter("prodid");
 
-			response.sendRedirect("login.jsp?message=Access Denied, Login As Admin!!");
+        if (prodId == null || prodId.isEmpty()) {
+            response.sendRedirect("adminStock.jsp?message=Error: No Product ID Provided");
+            return;
+        }
 
-		}
+        System.out.println("DEBUG: Removing product ID = " + prodId);
 
-		else if (userName == null || password == null) {
+        // ✅ Remove product from CSV
+        ServletContext context = getServletContext();
+        ProductServiceImpl productService = new ProductServiceImpl();
+        String status = productService.removeProduct(prodId, context);
 
-			response.sendRedirect("login.jsp?message=Session Expired, Login Again!!");
-		}
-
-		// login checked
-
-		String prodId = request.getParameter("prodid");
-
-		ProductServiceImpl product = new ProductServiceImpl();
-
-		String status = product.removeProduct(prodId);
-
-		RequestDispatcher rd = request.getRequestDispatcher("removeProduct.jsp?message=" + status);
-
-		rd.forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+        // ✅ Redirect back to adminStock.jsp with status message
+        response.sendRedirect("adminStock.jsp?message=" + status);
+    }
 }

@@ -1,0 +1,12 @@
+prodId,prodName,prodType,prodPrice,prodQuantity,prodImage,,
+P001,Apple,Fruits,20.5,50,images/Apple.jpg,,
+P002,Banana,Fruits,10.55,50,images/Banana.jpg,,
+P003,Lychee,Fruits,29.99,30,images/Lychee.jpg,,
+P004,Mangosteen,Fruits,15.99,30,images/Mangosteen.JPG,,
+P005,Oranges,Fruits,14.99,60,images/Oranges.jpg,,
+P006,Aubergine,Vegetables,14,70,images/Aubergine.jpg,,
+P007,Broccoli,Vegetables,14,50,images/Broccoli.jpg,,
+P008,Kale,Vegetables,6.05,50,images/Kale.jpg,,
+P009,Leek,Vegetables,5.99,50,images/Leek.jpg,,
+P010,Spinach,Vegetables,4.99,50,images/Spinach.jpg,,"					"
+,,,,,,,"	"
