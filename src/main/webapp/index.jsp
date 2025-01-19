@@ -60,12 +60,6 @@
 <section class="categories" id="categories">
     <h1 class="heading"><span>Product Categories</span></h1>
     <div class="box-container">
-        <!-- Category 1 -->
-        <div class="box">
-            <img src="images/framerpick.png" alt="Framer's pick" style="width: 200px; height: 200px;">
-            <h3>Framer's pick</h3>
-            <a href="" class="btn">Shop Now</a>
-        </div>
         <!-- Category 3 -->
         <div class="box">
             <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
