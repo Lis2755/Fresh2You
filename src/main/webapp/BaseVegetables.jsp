@@ -7,6 +7,7 @@
   <title>Vegetable Store</title>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 
     <header>
         <div class="header-image">

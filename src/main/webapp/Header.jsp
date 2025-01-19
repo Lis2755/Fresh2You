@@ -57,7 +57,7 @@
 </head>
 <body>
 <header class="header">
-    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
+    <a href="index.jsp" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
     <nav class="navbar">
         <a href="index.jsp">home</a>
         <a href="connect.jsp">Recipe</a>
@@ -72,11 +72,10 @@
     <div class="icons">
         <div class="fa fa-bars" id="menu-btn"></div>
         <div class="fas fa-shopping-cart" id="cart-btn"></div>
-        <div class="fas fa-user" id="login-btn"></div>
     </div>
-    <form action="" class="login-form">
-        <button class="btn">Login now</button>
-    </form>
+    <a href="login.jsp">
+    <button class="btn">Login now</button>
+</a>
 </header>
 </body>
 </html>
