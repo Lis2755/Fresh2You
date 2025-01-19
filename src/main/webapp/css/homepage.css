@@ -554,8 +554,6 @@ section {
     }
 }
 
-
-
 /* Footer Styling */
 .footer {
     background-color: #fff;
@@ -637,5 +635,141 @@ section {
 	margin-left: 6.5rem;
 }
 
+.landing_about_Section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 50px;
+}
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.about-details {
+    color: #34495e;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.about-details p {
+    margin-bottom: 20px;
+}
+
+.about-details h3 {
+    font-size: 1.5rem;
+    color: #16a085;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.about-details ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-details ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.about-details ul li i {
+    color: #16a085;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.about-details ul li::before {
+    content: "\2022"; /* Bullet point */
+    color: #16a085;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.about-details ul li strong {
+    color: #16a085;
+    font-weight: 600;
+}
+
+.vision {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vision .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-images .about-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styling */
+@media (max-width: 992px) {
+    .landing_about_Section {
+        padding: 60px 20px;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-details {
+        font-size: 1rem;
+    }
+
+    .about-images .about-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        text-align: center;
+    }
+
+    .about-details p {
+        font-size: 1rem;
+    }
+}
+
+/* Adding subtle hover effects */
+.about-details ul li:hover {
+    color: #16a085;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}}

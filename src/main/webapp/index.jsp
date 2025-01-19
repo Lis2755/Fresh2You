@@ -76,19 +76,19 @@
         <div class="box">
             <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
             <h3>Fruits</h3>
-            <a href="" class="btn">Shop Now</a>
+            <a href="BaseFruits.html" class="btn">Shop Now</a>
         </div>
         
         <div class="box">
             <img src="images/vegetables.jpg" alt="Vegetables" style="width: 200px; height: 200px;">
             <h3>Vegetables</h3>
-            <a href="" class="btn">Shop Now</a>
+            <a href="BaseVegetables.html" class="btn">Shop Now</a>
         </div>
     </div>
 </section>
 
 <section class="recipes" id="recipes">
-    <h1 class="heading"><span>Discover Our Recipes</span></h1>
+    <h1 class="heading"><span>Our Recipes</span></h1>
     <div class="content-container">
     	<img src="images/recipe.jpeg" alt="recipe">
         <p>Get inspired with delicious recipes using our fresh and organic produce. From quick meals to gourmet dishes, we have something for everyone!</p>

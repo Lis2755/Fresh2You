@@ -13,7 +13,7 @@
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
     <nav class="navbar">
         <a href="#home">home</a>
-        <a href="#About us">About us</a>
+        <a href="AboutUs.jsp">About us</a>
         <a href="#Top Picks!">Top Picks!</a>
         <a href="#Products">Products</a>
         <a href="#Promotion">Promotion</a>
