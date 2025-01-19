@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" 
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	
-	<body style="background-color: #d9d9d9;">
+	<body style="background-color: #ebebea;">
 	
 		<!-- Page View -->
 		<!-- Header -->
@@ -101,7 +101,9 @@
 						<td colspan="5" style="text-align: center;">
 						<td colspan="2" align="center">
 							<form method="post">
-								<button style="background-color: #054d31; color: white; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+								<button style="background-color: #054d31; color: white; font-size: 20px; 
+                   				border: none; border-radius: 8px; cursor: pointer; 
+                   				font-weight: bold; width: 250px; height: 50px;">
 									Proceed to Checkout
 								</button>
 							</form>

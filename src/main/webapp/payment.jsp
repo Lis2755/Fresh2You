@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java"
 	pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
-	<body style="background-color: #98b464;">
+	<body style="background-color: #ffffff;">
 	
 	
 		<!-- Insert header -->
@@ -27,7 +27,7 @@
 				style="margin-top: 5px; margin-left: 2px; margin-right: 2px;">
 				<form method="post"
 					class="col-md-6 col-md-offset-3"
-					style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
+					style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 10px;">
 					
 					<div style="font-weight: bold;" class="text-center">
 						<div class="form-group">
@@ -46,7 +46,7 @@
 					<div class="row">
 						<div class="col-md-12 form-group">
 							<label>CREDIT CARD NUMBER</label> 
-							<input type="number" placeholder="xxxx-xxxx-xxxx-xxxx" class="form-control" required>
+							<input type="number" placeholder="XXXX-XXXX-XXXX-XXXX" class="form-control" required>
 						</div>
 					</div>
 					
@@ -58,7 +58,7 @@
 						
 						<div class="col-md-6 form-group">
 							<label for="last_name">Enter CVV</label> 
-							<input type="number" placeholder="xxx" class="form-control" required>
+							<input type="number" placeholder="XXX" class="form-control" required>
 						</div>
 					</div>
 					

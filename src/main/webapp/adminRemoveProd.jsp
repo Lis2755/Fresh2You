@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #98b464;">
+<body style="background-color: #ffffff;">
 	
 
 	<!-- Insert header -->
@@ -24,7 +23,7 @@
 			style="margin-top: 30px; margin-left: 2px; margin-right: 2px;">
 			<form action="./RemoveProductSrv" method="post"
 				class="col-md-6 col-md-offset-3"
-				style="border: 2px solid black; border-radius: 10px; background-color: #eaf6cf; padding: 10px;">
+				style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 10px;">
 				<div style="font-weight: bold;" class="text-center">
 					<h2 style="color: #006400; font-weight: bold;">Admin | Remove Product</h2>
 				</div>
@@ -38,21 +37,24 @@
 					</div>
 				</div>
 				<div class="row d-flex justify-content-center mt-3">
-				    <div class="col-md-6">
-				        <a href="adminViewProduct.jsp" class="btn btn-info"
-				           style="width: 150px; height: 40px; font-size: 18px; border-radius: 50px;
-				                  display: flex; align-items: center; justify-content: center; background-color: #006400;">
-				            Cancel
-				        </a>
-				    </div>
-				    <div class="col-md-6">
-				        <button type="submit" class="btn btn-danger"
-				                style="width: 150px; height: 40px; font-size: 18px; border-radius: 50px;
-				                       display: flex; align-items: center; justify-content: center;">
-				            Remove Product
-				        </button>
-				    </div>
+    <div class="col-md-6">
+        <a href="adminViewProduct.jsp" class="btn btn-info"
+           style="width: 150px; height: 40px; font-size: 16px; font-weight: 500; 
+                  border-radius: 50px; display: flex; align-items: center; justify-content: center; 
+                  background-color: #006400; padding: 5px 10px;">
+            Cancel
+        </a>
+    </div>
+    <div class="col-md-6">
+        <button type="submit" class="btn btn-danger"
+                style="width: 150px; height: 40px; font-size: 16px; font-weight: 500; 
+                       border-radius: 50px; display: flex; align-items: center; justify-content: center; 
+                       padding: 5px 10px;">
+            Remove Product
+        </button>
+    </div>
 </div>
+
 
 			</form>
 		</div>

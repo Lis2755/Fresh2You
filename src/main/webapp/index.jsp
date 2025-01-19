@@ -32,6 +32,7 @@
 	<label for="search-box" class="fas fa-search"></label>
 </form>
 
+
 <form action="" class="login-form">
 <h3>Login now</h3>
 <input type="email" placeholder="enter your email" class="box">
