@@ -1,4 +1,4 @@
-<%@ page language="java"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,47 +10,6 @@
   <jsp:include page="Header.jsp" />
 </head>
 <body>
-<<<<<<< HEAD
-=======
-
-<header class="header">
-<a href="#" class="logo"><i class="fas fa-shopping-basket"></i>  Fresh2You</a>
-
-<nav class="navbar">
-	<a href="#home">home</a>
-	<a href="#About us">About us</a>
-	<a href="Top Picks!">Top Picks!</a>
-	<a href="#Products">Products</a>
-	<a href="#Promotion">Promotion</a>
-</nav>
-
-<div class="icons">
-<div class="fa fa-bars" id="menu-btn"></div>
-<div class="fas fa-search" id="search-btn"></div>
-<div class="fas fa-shopping-cart" id="cart-btn"></div>
-<div class="fas fa-user" id="login-btn"></div>
-</div>
-
-<form action="" class="search-form">
-	<input type="search" id="search-box" placeholder="What are you looking for?">
-	<label for="search-box" class="fas fa-search"></label>
-</form>
-
-
-<form action="" class="login-form">
-<h3>Login now</h3>
-<input type="email" placeholder="enter your email" class="box">
-<input type="password" placeholder="your password" class="box">
-<p>forget your password <a href="#">click here</a></p>
-<p>don't have an account <a href="#">create now</a></p>
-<input type="submit" value="login now" class="btn">
-
-</form>
-
-</header>
-=======
-
->>>>>>> 80e4929736e03dd06ec07e053972487e982fa630
 
 <section class="home" id="home">
 <div class="content-container">
@@ -133,7 +92,7 @@
     <div class="content-container">
     	<img src="images/recipe.jpeg" alt="recipe">
         <p>Get inspired with delicious recipes using our fresh and organic produce. From quick meals to gourmet dishes, we have something for everyone!</p>
-        <a href="index.html" class="btn">Discover Recipes</a>
+        <a href="connect.html" class="btn">Discover Recipes</a>
     </div>
 </section>
 

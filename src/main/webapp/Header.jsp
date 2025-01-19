@@ -13,7 +13,7 @@
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
     <nav class="navbar">
         <a href="#home">home</a>
-        <a href="AboutUs.jsp">Recipe</a>
+        <a href="connect.html">Recipe</a>
         <a href="#Products">Products</a>
     </nav>
     <div class="icons">
