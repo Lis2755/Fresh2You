@@ -64,13 +64,13 @@
         <div class="box">
             <img src="images/fruit.jpg" alt="Fruits" style="width: 200px; height: 200px;">
             <h3>Fruits</h3>
-            <a href="BaseFruits.html" class="btn">Shop Now</a>
+            <a href="BaseFruits.jsp" class="btn">Shop Now</a>
         </div>
         
         <div class="box">
             <img src="images/vegetables.jpg" alt="Vegetables" style="width: 200px; height: 200px;">
             <h3>Vegetables</h3>
-            <a href="BaseVegetables.html" class="btn">Shop Now</a>
+            <a href="BaseVegetables.jsp" class="btn">Shop Now</a>
         </div>
     </div>
 </section>
@@ -80,7 +80,7 @@
     <div class="content-container">
     	<img src="images/recipe.jpeg" alt="recipe">
         <p>Get inspired with delicious recipes using our fresh and organic produce. From quick meals to gourmet dishes, we have something for everyone!</p>
-        <a href="connect.html" class="btn">Discover Recipes</a>
+        <a href="connect.jsp" class="btn">Discover Recipes</a>
     </div>
 </section>
 

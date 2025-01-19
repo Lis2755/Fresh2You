@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu's Recipes</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cK9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vpD4BUpCQkLSka6X4emY+gfLk5ezedL9alvGVaDGLUpuAI5JSTBrBzRMj0Ghknj9" crossorigin="anonymous" />
 </head>
 <body>
-    <header>
+	<jsp:include page="Header.jsp" />
+    <h1>
         <nav>
             <h1>Menu's Recipes</h1>
             <form>
@@ -16,7 +17,7 @@
                 <button type="submit" class="searchBtn">Search</button>
             </form>
         </nav>
-    </header>
+    </h1>
     <main>
         <section>
             <div class="recipe-container">
@@ -30,6 +31,7 @@
             </div>
         </section>
     </main>
+    <jsp:include page="Footer.jsp" />
     <script src="js/recipe.js"></script>
 </body>
 </html>

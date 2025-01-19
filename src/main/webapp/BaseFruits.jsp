@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/basestyle.css">
   <title>Fruit Store</title>
+  <jsp:include page="Header.jsp" />
 </head>
 <body>
 
@@ -207,6 +208,8 @@
         <button class="add-to-cart">Add to Cart</button>
       </div>
   </div>
+  
+    <jsp:include page="Footer.jsp" />
 
   <script src="js/baseref.js"></script>
 </body>

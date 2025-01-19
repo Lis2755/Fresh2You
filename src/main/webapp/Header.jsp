@@ -59,13 +59,13 @@
 <header class="header">
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="connect.html">Recipe</a>
+        <a href="index.jsp">home</a>
+        <a href="connect.jsp">Recipe</a>
         <div class="dropdown">
             <a href="#Products">Products</a>
             <div class="dropdown-content">
-                <a href="BaseFruits.html">Fruits</a>
-                <a href="BaseVegetables.html">Vegetables</a>
+                <a href="BaseFruits.jsp">Fruits</a>
+                <a href="BaseVegetables.jsp">Vegetables</a>
             </div>
         </div>
     </nav>

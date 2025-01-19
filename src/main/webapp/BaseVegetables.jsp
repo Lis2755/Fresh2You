@@ -207,6 +207,8 @@
         <button class="add-to-cart">Add to Cart</button>
       </div>
   </div>
+  
+  <jsp:include page="Footer.jsp" />
 
   <script src="js/baseref.js"></script>
 </body>
