@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,17 +14,16 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
-	<body style="background-color: #98b464;">
+	<body style="background-color: #ffffff;">
 	
 		<!-- Insert header -->
-		<jsp:include page="header.jsp" />
 	
 		<div class="container">
 			<div class="row"
 				style="margin-top: 30px; margin-left: 2px; margin-right: 2px;">
 				<form action="./UpdateProductSrv" method="post"
 					class="col-md-6 col-md-offset-3"
-					style="border: 2px solid black; border-radius: 10px; background-color: #eaf6cf; padding: 10px;">
+					style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 10px;">
 					<div style="font-weight: bold; margin-bottom: 30px;" class="text-center">
 						<div class="form-group">
 							<h2 style="color: #006400; font-weight: bold">Admin | Update Product</h2>

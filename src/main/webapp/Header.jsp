@@ -13,10 +13,8 @@
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> Fresh2You</a>
     <nav class="navbar">
         <a href="#home">home</a>
-        <a href="AboutUs.jsp">About us</a>
-        <a href="#Top Picks!">Top Picks!</a>
+        <a href="AboutUs.jsp">Recipe</a>
         <a href="#Products">Products</a>
-        <a href="#Promotion">Promotion</a>
     </nav>
     <div class="icons">
         <div class="fa fa-bars" id="menu-btn"></div>
@@ -29,12 +27,7 @@
         <label for="search-box" class="fas fa-search"></label>
     </form>
     <form action="" class="login-form">
-        <h3>Login now</h3>
-        <input type="email" placeholder="enter your email" class="box">
-        <input type="password" placeholder="your password" class="box">
-        <p>forget your password <a href="#">click here</a></p>
-        <p>don't have an account <a href="#">create now</a></p>
-        <input type="submit" value="login now" class="btn">
+        <button class="btn">Login now</button>
     </form>
 </header>
 

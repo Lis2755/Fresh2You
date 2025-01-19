@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,7 +13,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/changes.css">
 	</head>
-	<body style="background-color: #a5c29e;">
+	<body style="background-color: #ffffff;">
 		
 		<!-- Insert header -->
 	
@@ -24,7 +23,7 @@
 				style="margin-top: 30px; margin-left: 2px; margin-right: 2px;">
 				<form action="./AddProductSrv" method="post"
 					enctype="multipart/form-data" class="col-md-6 col-md-offset-3"
-					style="border: 2px solid black; border-radius: 10px; background-color: #eaf6cf; padding: 10px;">
+					style="border: 2px solid black; border-radius: 10px; background-color: #ebebea; padding: 10px;">
 					<div style="font-weight: bold;" class="text-center">
 						<h2 style="color: #006400; font-weight: bold;">Admin | Add Product</h2>
 					</div>
@@ -67,22 +66,17 @@
 								id="last_name" required>
 						</div>
 					</div>
-					<div class="row d-flex justify-content-center mt-3">
-					    <div class="col-md-6">
-					        <button type="reset" class="btn btn-danger" 
-					            style="width: 150px; height: 40px; font-size: 18px; border-radius: 50px; 
-					                   display: flex; align-items: center; justify-content: center;">
-					            Reset
-					        </button>
-					    </div>
-					    <div class="col-md-6">
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="col-md-12 text-center">
 					        <button type="submit" class="btn btn-success" 
 					            style="width: 150px; height: 40px; font-size: 18px; border-radius: 50px; 
-					                   background-color: #006400; display: flex; align-items: center; justify-content: center;">
+					                   background-color: #006400; font-weight: bold;">
 					            Add Product
 					        </button>
 					    </div>
 					</div>
+
+
 				</form>
 			</div>
 		</div>
