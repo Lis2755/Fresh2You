@@ -1,117 +1,102 @@
 package Java.srv;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import jakarta.servlet.RequestDispatcher;
+import java.io.*;
+import java.util.*;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import Java.dbImpl.*;
-import Java.elements.*;
+import Java.dbImpl.ProductServiceImpl;
+import Java.elements.ProductBean;
 
 /**
- * Servlet implementation class AddtoCart
+ * Servlet implementation class AddtoCart (Using CSV Instead of Database)
  */
 @WebServlet("/AddtoCart")
 public class AddtoCart extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    private static final String CART_CSV_FILE = "/WEB-INF/cart.csv"; // Cart storage path
 
-	public AddtoCart() {
-		super();
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String userName = (String) session.getAttribute("username");
+        String userType = (String) session.getAttribute("usertype");
 
-		HttpSession session = request.getSession();
-		String userName = (String) session.getAttribute("username");
-		String password = (String) session.getAttribute("password");
-		String usertype = (String) session.getAttribute("usertype");
-		if (userName == null || password == null || usertype == null || !usertype.equalsIgnoreCase("customer")) {
-			response.sendRedirect("login.jsp?message=Session Expired, Login Again to Continue!");
-			return;
-		}
+        if (userName == null || userType == null || !userType.equalsIgnoreCase("customer")) {
+            response.sendRedirect("login.jsp?message=Session Expired, Login Again to Continue!");
+            return;
+        }
 
-		// login Check Successfull
+        String userId = userName;
+        String prodId = request.getParameter("pid");
+        int pQty = Integer.parseInt(request.getParameter("pqty")); // Always 1 since no quantity input
 
-		String userId = userName;
-		String prodId = request.getParameter("pid");
-		int pQty = Integer.parseInt(request.getParameter("pqty")); // 1
+        ServletContext context = getServletContext();
+        String cartCsvPath = context.getRealPath(CART_CSV_FILE);
 
-		CartServiceImpl cart = new CartServiceImpl();
+        // Load all cart items
+        List<String[]> cartItems = loadCartItems(cartCsvPath);
 
-		ProductServiceImpl productDao = new ProductServiceImpl();
+        // Check if the product already exists in the cart
+        boolean updated = false;
+        for (String[] item : cartItems) {
+            if (item[0].equals(userId) && item[1].equals(prodId)) { // User already has this item
+                int currentQty = Integer.parseInt(item[2]);
+                item[2] = String.valueOf(currentQty + pQty); // Update quantity
+                updated = true;
+                break;
+            }
+        }
 
-		ProductBean product = productDao.getProductDetails(prodId);
+        // If the product was not in the cart, add a new entry
+        if (!updated) {
+            cartItems.add(new String[]{userId, prodId, String.valueOf(pQty)});
+        }
 
-		int availableQty = product.getProdQuantity();
+        // Save updated cart data
+        saveCartItems(cartCsvPath, cartItems);
 
-		int cartQty = cart.getProductCount(userId, prodId);
+        response.sendRedirect("fruits.jsp?message=Product added to cart successfully!");
+    }
 
-		pQty += cartQty;
+    // Load cart data from CSV file
+    private List<String[]> loadCartItems(String filePath) {
+        List<String[]> cartItems = new ArrayList<>();
+        File file = new File(filePath);
 
-		PrintWriter pw = response.getWriter();
+        if (!file.exists()) return cartItems;
 
-		response.setContentType("text/html");
-		if (pQty == cartQty) {
-			String status = cart.removeProductFromCart(userId, prodId);
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            boolean isFirstLine = true;
+            while ((line = br.readLine()) != null) {
+                if (isFirstLine) { // Skip header
+                    isFirstLine = false;
+                    continue;
+                }
+                String[] values = line.split(",");
+                if (values.length == 3) cartItems.add(values);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cartItems;
+    }
 
-			RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
-
-			rd.include(request, response);
-
-			pw.println("<script>document.getElementById('message').innerHTML='" + status + "'</script>");
-		} else if (availableQty < pQty) {
-
-			String status = null;
-
-			if (availableQty == 0) {
-				status = "Product is Out of Stock!";
-			} else {
-
-				cart.updateProductToCart(userId, prodId, availableQty);
-
-				status = "Only " + availableQty + " no of " + product.getProdName()
-						+ " are available in the shop! So we are adding only " + availableQty
-						+ " products into Your Cart" + "";
-			}
-			DemandBean demandBean = new DemandBean(userName, product.getProdId(), pQty - availableQty);
-
-			DemandServiceImpl demand = new DemandServiceImpl();
-
-			boolean flag = demand.addProduct(demandBean);
-
-			if (flag)
-				status += "<br/>Later, We Will Mail You when " + product.getProdName()
-						+ " will be available into the Store!";
-
-			RequestDispatcher rd = request.getRequestDispatcher("cartDetails.jsp");
-
-			rd.include(request, response);
-
-			pw.println("<script>document.getElementById('message').innerHTML='" + status + "'</script>");
-
-		} else {
-			String status = cart.updateProductToCart(userId, prodId, pQty);
-
-			RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
-
-			rd.include(request, response);
-
-			pw.println("<script>document.getElementById('message').innerHTML='" + status + "'</script>");
-		}
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+    // Save cart data to CSV file
+    private void saveCartItems(String filePath, List<String[]> cartItems) {
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filePath)))) {
+            pw.println("userId,prodId,quantity"); // Header
+            for (String[] item : cartItems) {
+                pw.println(String.join(",", item));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

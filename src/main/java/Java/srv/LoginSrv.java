@@ -66,7 +66,7 @@ public class LoginSrv extends HttpServlet {
                 if (userType.equalsIgnoreCase("admin")) {
                     response.sendRedirect("adminStock.jsp");
                 } else {
-                    response.sendRedirect("BaseFruits.jsp"); // Redirect customers to BaseFruits.jsp
+                    response.sendRedirect("fruits.jsp"); // Redirect customers to BaseFruits.jsp
                 }
                 return;
             } else {
